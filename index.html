@@ -1858,20 +1858,34 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-// observe on section switch
-const origShow = show;
-function show(id) {
-  origShow(id);
+// observe on section switch — integrated into show()
+const revealElements = () => {
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
+    revealObserver.observe(el);
+  });
+};
+
+// override show to also trigger reveals
+const _origShow = show;
+show = function(id) {
+  _origShow(id);
+  // force all reveal elements in the new section to be visible immediately
+  // since IntersectionObserver may not fire fast enough
   setTimeout(() => {
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
+    const section = document.getElementById(id);
+    section.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
       revealObserver.observe(el);
+      // force visible for elements near top of section
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('visible');
+      }
     });
-  }, 50);
-}
+  }, 100);
+};
+
 // initial observe
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-stagger').forEach(el => {
-  revealObserver.observe(el);
-});
+revealElements();
 
 /* cursor */const cur = document.getElementById('cur');
 const curR = document.getElementById('curR');
