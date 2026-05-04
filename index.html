@@ -150,40 +150,207 @@ section.visible { display: block; }
 
 .hero-wrap {
   min-height: calc(100vh - 60px);
-  padding: 0 5vw;
-  max-width: 1400px; margin: 0 auto;
   display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 5vw;
+  max-width: 1300px; margin: 0 auto;
 }
 
-/* top hero area — name + info side by side */
-.hero-top {
-  display: grid; grid-template-columns: 1.2fr 1fr;
-  gap: 60px;
-  align-items: end;
-  padding: 80px 0 0;
+.hero-meta {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
+  color: var(--mist); margin-bottom: 32px;
+  display: flex; align-items: center; gap: 16px;
+  opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+}
+.hero-meta::before {
+  content: ''; width: 40px; height: 1px; background: var(--accent);
 }
 
-.hero-left {
-  display: flex; flex-direction: column; justify-content: flex-end;
+.hero-name {
+  font-family: var(--syne); font-weight: 800;
+  font-size: clamp(64px, 9vw, 140px);
+  line-height: 0.88; letter-spacing: -2px;
+  color: var(--white);
+  opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+}
+.hero-name .accent { color: var(--accent); display: block; }
+.hero-name .dim { color: var(--white); }
+
+.hero-bottom {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; margin-top: 48px; align-items: start;
 }
 
-.hero-right-info {
-  display: flex; flex-direction: column; gap: 24px;
-  padding: 32px;
-  background: var(--panel);
-  border: 1px solid var(--rim);
-  border-radius: 2px;
-  box-shadow: 0 2px 8px rgba(28,28,27,0.04);
+.hero-desc {
+  font-size: 15px; line-height: 1.75; color: var(--mist);
   opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
 }
+.hero-desc strong { color: var(--white); font-weight: 600; }
 
-/* model + binder stacked */
-.hero-mid {
-  display: flex; flex-direction: column;
-  gap: 0;
-  margin-top: 48px;
-  border-top: 1px solid var(--rim);
+.hero-right {
+  opacity: 0; animation: fadeUp 0.6s 0.65s forwards;
 }
+
+.hero-tags {
+  display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px;
+}
+
+.hero-btns { display: flex; gap: 14px; align-items: center; }
+
+/* ── AUTO-ROTATING FEATURED WORK ── */
+.hero-showcase {
+  margin-top: 56px; position: relative;
+  border-top: 1px solid var(--rim);
+  padding-top: 28px;
+  opacity: 0; animation: fadeUp 0.6s 0.8s forwards;
+}
+.showcase-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  color: var(--mist); text-transform: uppercase;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.showcase-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--rim), transparent); }
+
+.showcase-rotator {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rim);
+  background: var(--panel);
+  min-height: 320px;
+}
+
+.showcase-slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 320px;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+  visibility: hidden;
+}
+.showcase-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+  position: relative;
+}
+.showcase-slide.exiting {
+  opacity: 0;
+  transform: translateX(-30px);
+  position: absolute;
+  pointer-events: none;
+  visibility: visible;
+}
+
+.showcase-img {
+  position: relative; overflow: hidden;
+  background: #e0e0de;
+}
+.showcase-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.showcase-slide:hover .showcase-img img { transform: scale(1.03); }
+
+.showcase-img-studio {
+  position: absolute; top: 14px; left: 14px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  background: var(--accent); color: #fff;
+  padding: 4px 10px; text-transform: uppercase;
+  z-index: 2;
+}
+
+.showcase-info {
+  padding: 40px 36px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 1px solid var(--rim);
+  position: relative;
+}
+.showcase-info::before {
+  content: '';
+  position: absolute; top: 36px; left: 36px;
+  width: 28px; height: 2px;
+  background: var(--accent);
+}
+
+.showcase-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  color: var(--ghost); text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.showcase-title {
+  font-family: var(--syne); font-size: clamp(22px, 2.2vw, 32px);
+  font-weight: 800; line-height: 1.05; letter-spacing: -0.5px;
+  color: var(--white); margin-bottom: 14px;
+}
+.showcase-title em { color: var(--accent); font-style: normal; }
+
+.showcase-cat {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  color: var(--ghost); text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.showcase-desc {
+  font-size: 13px; line-height: 1.75; color: var(--mist);
+  margin-bottom: 20px;
+}
+
+.showcase-tools {
+  display: flex; gap: 6px; flex-wrap: wrap;
+}
+.showcase-tool {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
+  color: var(--ghost); border: 1px solid var(--rim);
+  padding: 4px 10px; text-transform: uppercase;
+}
+
+/* progress bar + controls */
+.showcase-controls {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  border-top: 1px solid var(--rim);
+  background: var(--panel2);
+}
+
+.showcase-dots {
+  display: flex; gap: 6px; align-items: center;
+}
+.showcase-dot {
+  width: 28px; height: 3px; background: var(--rim);
+  cursor: none; position: relative; overflow: hidden;
+  transition: background 0.2s;
+}
+.showcase-dot.active { background: var(--rim2); }
+.showcase-dot-fill {
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform: scaleX(0); transform-origin: left;
+}
+.showcase-dot.active .showcase-dot-fill {
+  animation: dotProgress 4s linear forwards;
+}
+@keyframes dotProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+.showcase-nav {
+  display: flex; gap: 6px;
+}
+.showcase-nav-btn {
+  width: 32px; height: 32px;
+  background: var(--panel); border: 1px solid var(--rim);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: var(--ghost);
+  cursor: none; transition: all 0.2s; border-radius: 2px;
+}
+.showcase-nav-btn:hover { color: var(--accent); border-color: var(--accent); }
 
 .hero-model {
   position: relative;
@@ -1028,19 +1195,14 @@ footer {
   .nav-cta { display: none; }
   section { padding-left: 24px; padding-right: 24px; }
   .hero-wrap { padding: 0 24px; }
-  .hero-top { grid-template-columns: 1fr; gap: 28px; padding-top: 40px; }
-  .hero-mid { grid-template-columns: 1fr; }
-  .hero-model { height: 280px; border-right: none; border-bottom: 1px solid var(--rim); }
+  .hero-bottom { grid-template-columns: 1fr; gap: 28px; }
   .hero-name { font-size: clamp(40px, 10vw, 64px); }
   .hero-showcase { margin-top: 32px; }
-  .binder-tabs { padding-left: 10px; overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
-  .binder-tab { padding: 7px 12px; font-size: 9px; white-space: nowrap; }
-  .book-page { grid-template-columns: 1fr; }
-  .book-img { aspect-ratio: 16/10; }
-  .book-info { border-left: none; border-top: 1px solid var(--rim); padding: 24px 20px; }
-  .book-info::before { top: 24px; left: 20px; }
-  .book-title { font-size: 20px; }
-  .binder-nav { right: 12px; bottom: 12px; }
+  .showcase-slide { grid-template-columns: 1fr; }
+  .showcase-slide.active { position: relative; }
+  .showcase-img { aspect-ratio: 16/10; }
+  .showcase-info { border-left: none; border-top: 1px solid var(--rim); padding: 24px 20px; }
+  .showcase-info::before { top: 24px; left: 20px; }
   .proj-item, .proj-item.flip { grid-template-columns: 1fr; direction: ltr; transform: none !important; }
   .proj-item:hover { transform: none !important; box-shadow: none; }
   .proj-img-duo { grid-template-rows: unset; grid-template-columns: 1fr 1fr; aspect-ratio: 16/9; }
@@ -1199,20 +1361,18 @@ footer {
 <!-- ══════════════════ HOME ══════════════════ -->
 <section id="home" class="visible">
   <div class="hero-wrap">
+    <div class="hero-meta">3D ARTIST &nbsp;·&nbsp; SMITHFIELD, NC &nbsp;·&nbsp; 2026</div>
 
-    <!-- Top: Name + Info side by side -->
-    <div class="hero-top">
-      <div class="hero-left">
-        <div class="hero-meta">3D ARTIST &nbsp;·&nbsp; SMITHFIELD, NC &nbsp;·&nbsp; 2026</div>
-        <h1 class="hero-name">
-          <span class="dim">HUNTER</span>
-          <span class="accent">SMITH</span>
-        </h1>
-      </div>
-      <div class="hero-right-info">
-        <p class="hero-desc">
-          I build <strong>game-ready 3D assets</strong> — hard-surface props, character sculpts, and environments — for games and interactive media. Currently finishing my AAS at <strong>Wake Technical Community College</strong> and shipping work with <strong>Bit Loaf Studio</strong> on Neon Trigger.
-        </p>
+    <h1 class="hero-name">
+      <span class="dim">HUNTER</span>
+      <span class="accent">SMITH</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        I build <strong>game-ready 3D assets</strong> — hard-surface props, character sculpts, and environments — for games and interactive media. Currently finishing my AAS at <strong>Wake Technical Community College</strong> and shipping work with <strong>Bit Loaf Studio</strong> on Neon Trigger.
+      </p>
+      <div class="hero-right">
         <div class="hero-tags">
           <span class="htag hi">Hard Surface</span>
           <span class="htag hi">Character</span>
@@ -1230,146 +1390,112 @@ footer {
       </div>
     </div>
 
-    <!-- Middle: 3D Model + Binder side by side -->
-    <div class="hero-mid">
+    <!-- Auto-rotating Featured Work -->
+    <div class="hero-showcase">
+      <div class="showcase-label">// Featured Work</div>
+      <div class="showcase-rotator" id="showcaseRotator">
 
-      <!-- Interactive 3D Model -->
-      <div class="hero-model" id="hero-skfb">
-        <div class="hero-model-preview">
-          <img src="Rendered_Image2.png" alt="WW2 Enfield No.2 Revolver">
-          <button class="hero-model-btn" onclick="loadHeroModel()">
-            <span class="hero-model-btn-icon"></span> Explore in 3D
-          </button>
-          <span class="hero-model-badge">Interactive Sketchfab Model</span>
-        </div>
-        <iframe title="WW2 Enfield No.2 Revolver" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" data-src="https://sketchfab.com/models/8441bae7e32a40ada3bee6625508bb0f/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0&ui_controls=1"></iframe>
-        <div class="hero-model-label">
-          <div class="hero-model-label-name">WW2 Enfield No.2 Revolver</div>
-          <div class="hero-model-label-cat">Hard Surface · Prop · Blender + Substance</div>
-        </div>
-      </div>
-
-      <!-- Featured Work Binder -->
-      <div class="hero-showcase">
-        <div class="showcase-label">// Featured Work</div>
-        <div class="book" id="workBook">
-
-          <!-- Tabs on top -->
-          <div class="binder-tabs">
-            <div class="binder-tab active" onclick="bookGo(0)">Revolver</div>
-            <div class="binder-tab" onclick="bookGo(1)">Robot</div>
-            <div class="binder-tab" onclick="bookGo(2)">Boots</div>
-            <div class="binder-tab" onclick="bookGo(3)">Rifle</div>
-            <div class="binder-tab" onclick="bookGo(4)">Sculpt</div>
+        <div class="showcase-slide active" data-slide="0">
+          <div class="showcase-img">
+            <img src="Rendered_Image2.png" alt="WW2 Enfield No.2 Revolver">
           </div>
-
-          <!-- Page viewport -->
-          <div class="binder-viewport">
-            <div class="binder-slider" id="binderSlider">
-
-              <!-- Page 1 -->
-              <div class="book-page" data-page="0">
-                <div class="book-img">
-                  <img src="Rendered_Image2.png" alt="WW2 Enfield No.2 Revolver">
-                </div>
-                <div class="book-info">
-                  <div class="book-num">01 / 05</div>
-                  <h3 class="book-title">WW2 ENFIELD<br><em>NO.2 REVOLVER</em></h3>
-                  <div class="book-cat">Hard Surface · Prop</div>
-                  <p class="book-desc">Built in Blender using Boolean cuts, pushed into a high poly for hard-surface details. Baked onto low poly and textured in Substance Painter.</p>
-                  <div class="book-tools">
-                    <span class="book-tool">Blender</span>
-                    <span class="book-tool">Substance Painter</span>
-                    <span class="book-tool">PBR</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page 2 -->
-              <div class="book-page" data-page="1">
-                <div class="book-img">
-                  <img src="Character_Sheet.png" alt="Neon Trigger Robot Character">
-                  <span class="book-img-studio">Bit Loaf Studio</span>
-                </div>
-                <div class="book-info">
-                  <div class="book-num">02 / 05</div>
-                  <h3 class="book-title">NEON TRIGGER<br><em>ROBOT CHARACTER</em></h3>
-                  <div class="book-cat">Character · Game-Ready</div>
-                  <p class="book-desc">Rebuilt a high poly on top of an existing low-poly base. Baked and textured with dark battle-worn armor and blue neon emissive accents.</p>
-                  <div class="book-tools">
-                    <span class="book-tool">Maya</span>
-                    <span class="book-tool">Substance Painter</span>
-                    <span class="book-tool">Emissive</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page 3 -->
-              <div class="book-page" data-page="2">
-                <div class="book-img">
-                  <img src="Boot_Render4.png" alt="Worn Leather Boots">
-                </div>
-                <div class="book-info">
-                  <div class="book-num">03 / 05</div>
-                  <h3 class="book-title">WORN LEATHER<br><em>BOOTS</em></h3>
-                  <div class="book-cat">Organic Sculpt · Prop</div>
-                  <p class="book-desc">Sculpted in ZBrush for organic detail, retopologized in Blender. Textured with worn leather and dirt buildup.</p>
-                  <div class="book-tools">
-                    <span class="book-tool">ZBrush</span>
-                    <span class="book-tool">Blender</span>
-                    <span class="book-tool">Retopology</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page 4 -->
-              <div class="book-page" data-page="3">
-                <div class="book-img">
-                  <img src="Rifle_Render.png" alt="Sci-Fi Weapon Prop">
-                </div>
-                <div class="book-info">
-                  <div class="book-num">04 / 05</div>
-                  <h3 class="book-title">SCI-FI WEAPON<br><em>PROP</em></h3>
-                  <div class="book-cat">Hard Surface · Weapon</div>
-                  <p class="book-desc">Hard-surface weapon prop for Neon Trigger with neon textures, emissive accents, and metallic panels.</p>
-                  <div class="book-tools">
-                    <span class="book-tool">Blender</span>
-                    <span class="book-tool">Substance Painter</span>
-                    <span class="book-tool">Game-Ready</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Page 5 -->
-              <div class="book-page" data-page="4">
-                <div class="book-img">
-                  <img src="Screenshot_2025-03-24_103804.png" alt="Tactical Character Sculpt">
-                </div>
-                <div class="book-info">
-                  <div class="book-num">05 / 05</div>
-                  <h3 class="book-title">TACTICAL CHARACTER<br><em>HIGH POLY SCULPT</em></h3>
-                  <div class="book-cat">High Poly Sculpt · Character</div>
-                  <p class="book-desc">Full-body high-poly sculpt — anatomy, cloth folds, and tactical gear blending organic and hard-surface workflows.</p>
-                  <div class="book-tools">
-                    <span class="book-tool">ZBrush</span>
-                    <span class="book-tool">Character Sculpting</span>
-                    <span class="book-tool">Organic + Hard Surface</span>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /binder-slider -->
-
-            <!-- Nav arrows -->
-            <div class="binder-nav">
-              <button class="binder-nav-btn" id="bookPrev" onclick="bookNav(-1)" disabled>←</button>
-              <button class="binder-nav-btn" id="bookNext" onclick="bookNav(1)">→</button>
+          <div class="showcase-info">
+            <div class="showcase-num">01 / 05</div>
+            <h3 class="showcase-title">WW2 ENFIELD<br><em>NO.2 REVOLVER</em></h3>
+            <div class="showcase-cat">Hard Surface · Prop</div>
+            <p class="showcase-desc">Built in Blender using Boolean cuts, pushed into a high poly for hard-surface details. Baked onto low poly and textured in Substance Painter.</p>
+            <div class="showcase-tools">
+              <span class="showcase-tool">Blender</span>
+              <span class="showcase-tool">Substance Painter</span>
+              <span class="showcase-tool">PBR</span>
             </div>
           </div>
-
         </div>
-      </div>
 
+        <div class="showcase-slide" data-slide="1">
+          <div class="showcase-img">
+            <img src="Character_Sheet.png" alt="Neon Trigger Robot">
+            <span class="showcase-img-studio">Bit Loaf Studio</span>
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-num">02 / 05</div>
+            <h3 class="showcase-title">NEON TRIGGER<br><em>ROBOT CHARACTER</em></h3>
+            <div class="showcase-cat">Character · Game-Ready</div>
+            <p class="showcase-desc">Rebuilt a high poly on top of an existing low-poly base. Textured with dark battle-worn armor and blue neon emissive accents.</p>
+            <div class="showcase-tools">
+              <span class="showcase-tool">Maya</span>
+              <span class="showcase-tool">Substance Painter</span>
+              <span class="showcase-tool">Emissive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-slide" data-slide="2">
+          <div class="showcase-img">
+            <img src="Boot_Render4.png" alt="Worn Leather Boots">
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-num">03 / 05</div>
+            <h3 class="showcase-title">WORN LEATHER<br><em>BOOTS</em></h3>
+            <div class="showcase-cat">Organic Sculpt · Prop</div>
+            <p class="showcase-desc">Sculpted in ZBrush for organic detail, retopologized in Blender. Textured with worn leather and dirt buildup.</p>
+            <div class="showcase-tools">
+              <span class="showcase-tool">ZBrush</span>
+              <span class="showcase-tool">Blender</span>
+              <span class="showcase-tool">Retopology</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-slide" data-slide="3">
+          <div class="showcase-img">
+            <img src="Rifle_Render.png" alt="Sci-Fi Weapon Prop">
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-num">04 / 05</div>
+            <h3 class="showcase-title">SCI-FI WEAPON<br><em>PROP</em></h3>
+            <div class="showcase-cat">Hard Surface · Weapon</div>
+            <p class="showcase-desc">Hard-surface weapon prop for Neon Trigger with neon textures, emissive accents, and metallic panels.</p>
+            <div class="showcase-tools">
+              <span class="showcase-tool">Blender</span>
+              <span class="showcase-tool">Substance Painter</span>
+              <span class="showcase-tool">Game-Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-slide" data-slide="4">
+          <div class="showcase-img">
+            <img src="TundraScoutFinalRender.png" alt="Tundra Scout Character">
+          </div>
+          <div class="showcase-info">
+            <div class="showcase-num">05 / 05</div>
+            <h3 class="showcase-title">TUNDRA<br><em>SCOUT</em></h3>
+            <div class="showcase-cat">Character · Stylized</div>
+            <p class="showcase-desc">Stylized arctic scout with layered clothing, a bolt-action rifle, and hand-painted textures combining organic and hard-surface workflows.</p>
+            <div class="showcase-tools">
+              <span class="showcase-tool">ZBrush</span>
+              <span class="showcase-tool">Blender</span>
+              <span class="showcase-tool">Hand-Painted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase-controls">
+          <div class="showcase-dots">
+            <div class="showcase-dot active" onclick="goSlide(0)"><div class="showcase-dot-fill"></div></div>
+            <div class="showcase-dot" onclick="goSlide(1)"><div class="showcase-dot-fill"></div></div>
+            <div class="showcase-dot" onclick="goSlide(2)"><div class="showcase-dot-fill"></div></div>
+            <div class="showcase-dot" onclick="goSlide(3)"><div class="showcase-dot-fill"></div></div>
+            <div class="showcase-dot" onclick="goSlide(4)"><div class="showcase-dot-fill"></div></div>
+          </div>
+          <div class="showcase-nav">
+            <button class="showcase-nav-btn" onclick="navSlide(-1)">←</button>
+            <button class="showcase-nav-btn" onclick="navSlide(1)">→</button>
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -1382,75 +1508,40 @@ footer {
       <div class="port-over">// Selected Works</div>
       <h2 class="port-title">PORT<em>FOLIO</em></h2>
     </div>
-    <div class="port-count">09 PROJECTS</div>
+    <div class="port-count">07 PROJECTS</div>
   </div>
 
   <div class="proj-list">
 
     <!-- 01 – Enfield Revolver -->
     <div class="proj-item reveal">
-      <div class="skfb-wrap" id="skfb-enfield">
-        <div class="skfb-preview">
-          <img src="Rendered_Image2.png" alt="WW2 Enfield No.2 Revolver">
-          <button class="skfb-btn" onclick="loadSkfb('skfb-enfield','8441bae7e32a40ada3bee6625508bb0f')">
-            <span class="skfb-btn-icon"></span> Spin in 3D
-          </button>
-          <span class="skfb-badge">Interactive Sketchfab Model</span>
-        </div>
-        <iframe title="WW2 Enfield No.2 Revolver" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" data-src="https://sketchfab.com/models/8441bae7e32a40ada3bee6625508bb0f/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0&ui_controls=1"></iframe>
-        <div class="skfb-index">01 / 09</div>
+      <div class="proj-img-duo">
+        <img src="Rendered_Image2.png" alt="Enfield Revolver — side view">
+        <img src="Rendered_Image.png" alt="Enfield Revolver — other side">
       </div>
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Prop</div>
         <h3 class="proj-title">WW2 ENFIELD<br><em>NO.2 REVOLVER</em></h3>
-        <p class="proj-write">Built in Blender using Boolean cuts to rough out the shape, then pushed into a high poly to nail the hard-surface details. Baked onto the low poly and taken into Substance Painter — aiming for a well-worn look that sits between barely-used and falling apart, balancing the blued steel body against the warm wooden grip.</p>
+        <p class="proj-write">Built in Blender using Boolean-heavy workflows, pushed into a high poly for hard-surface details. Baked onto an optimized low poly and textured in Substance Painter — worn blued steel with a warm wooden grip.</p>
         <div class="proj-tools">
           <span class="ptool">Blender</span>
           <span class="ptool">Substance Painter</span>
-          <span class="ptool">High-to-Low Bake</span>
           <span class="ptool">PBR</span>
+          <span class="ptool">Game-Ready</span>
         </div>
       </div>
     </div>
 
-    <!-- 02 – Robot Character -->
+    <!-- 02 – Worn Leather Boots -->
     <div class="proj-item flip reveal">
       <div class="proj-img-wrap">
-        <img src="Character_Sheet.png" alt="Neon Trigger robot character low poly sheet">
-        <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-index">02 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-n">Character · Game-Ready</div>
-        <h3 class="proj-title">NEON TRIGGER<br><em>ROBOT CHARACTER</em></h3>
-        <p class="proj-write">Started from an existing low-poly base and rebuilt a new high poly on top, applying techniques from the Enfield project. Baked back down and textured in Substance Painter — dark battle-worn armor plates with blue neon emissive accents to fit the cyberpunk aesthetic of Neon Trigger.</p>
-        <div class="proj-tools">
-          <span class="ptool">Maya</span>
-          <span class="ptool">Substance Painter</span>
-          <span class="ptool">Low Poly</span>
-          <span class="ptool">Emissive</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 03 – Boots -->
-    <div class="proj-item reveal">
-      <div class="skfb-wrap" id="skfb-boots">
-        <div class="skfb-preview">
-          <img src="Boot_Render4.png" alt="Worn leather boots">
-          <button class="skfb-btn" onclick="loadSkfb('skfb-boots','12e1c50eccd64b0892e02f5a593b3802')">
-            <span class="skfb-btn-icon"></span> Spin in 3D
-          </button>
-          <span class="skfb-badge">Interactive Sketchfab Model</span>
-        </div>
-        <iframe title="Old Worn Boots" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" data-src="https://sketchfab.com/models/12e1c50eccd64b0892e02f5a593b3802/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0&ui_controls=1"></iframe>
-        <div class="skfb-index">03 / 09</div>
+        <img src="Boot_Render4.png" alt="Worn Leather Boots — front pair">
+        <div class="proj-index">02 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Organic Sculpt · Prop</div>
         <h3 class="proj-title">WORN LEATHER<br><em>BOOTS</em></h3>
-        <p class="proj-write">Pulled from a larger character and pushed further as a standalone piece. Sculpted the high poly in ZBrush for organic shapes and leather surface detail, then retopologized in Blender. Textured in Substance Painter focusing on worn leather with dirt buildup in the creases — selling the idea of someone who's been out in genuinely rough conditions.</p>
+        <p class="proj-write">High-poly sculpted in ZBrush for organic leather surface detail and worn creases. Retopologized in Blender, UV'd, and textured in Substance Painter with layered dirt buildup settling into seams.</p>
         <div class="proj-tools">
           <span class="ptool">ZBrush</span>
           <span class="ptool">Blender</span>
@@ -1460,131 +1551,98 @@ footer {
       </div>
     </div>
 
-    <!-- 04 – Arctic Character -->
-    <div class="proj-item flip reveal">
-      <div class="proj-img-wrap">
-        <img src="Screenshot_2025-03-11_134059.png" alt="Arctic Racing character">
-        <div class="proj-studio">Arctic Racing</div>
-        <div class="proj-index">04 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-n">Character · Environment</div>
-        <h3 class="proj-title">ARCTIC RANGER<br><em>CHARACTER</em></h3>
-        <p class="proj-write">Character built during my time as a 3D Contributor on Arctic Racing. Designed for snowy biome gameplay — readable at play distance, detailed enough for close shots. Built to spec against the project's visual style guide and integrated cleanly into the team asset pipeline.</p>
-        <div class="proj-tools">
-          <span class="ptool">Blender</span>
-          <span class="ptool">Character Modeling</span>
-          <span class="ptool">Game-Ready</span>
-          <span class="ptool">Style Guide</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 05 – Neon Trigger Environment -->
-    <div class="proj-item reveal">
-      <div class="skfb-wrap" id="yt-neontrigger">
-        <div class="skfb-preview">
-          <img src="Character_Sheet.png" alt="Neon Trigger game trailer">
-          <button class="skfb-btn" onclick="loadYT('yt-neontrigger')">
-            <span class="skfb-btn-icon"></span> Watch Trailer
-          </button>
-          <span class="skfb-badge">Neon Trigger — Official Trailer</span>
-        </div>
-        <iframe title="Neon Trigger Trailer" allowfullscreen allow="autoplay; fullscreen" data-src="https://www.youtube.com/embed/SC3GZ0Me-cY?autoplay=1&rel=0"></iframe>
-        <div class="skfb-index">05 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-n">Environment · Level Art</div>
-        <h3 class="proj-title">NEON TRIGGER<br><em>ENVIRONMENT</em></h3>
-        <p class="proj-write">Environment and level art for Neon Trigger — a cyberpunk multiplayer game at Bit Loaf Studio. Hard-surface assets built to art direction, clean topology and organized UV layouts for smooth engine integration, collaborated with designers and programmers to ensure assets met both visual and gameplay standards.</p>
-        <div class="proj-tools">
-          <span class="ptool">Unreal Engine 5</span>
-          <span class="ptool">Hard Surface</span>
-          <span class="ptool">Environment Art</span>
-          <span class="ptool">UV Layout</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 06 – WW2 Crate -->
-    <div class="proj-item flip reveal">
-      <div class="skfb-wrap" id="skfb-crate">
-        <div class="skfb-preview">
-          <img src="Box_Renders3.png" alt="WW2 wooden crate">
-          <button class="skfb-btn" onclick="loadSkfb('skfb-crate','c1cd507941344d6cbc1d08b12511f520')">
-            <span class="skfb-btn-icon"></span> Spin in 3D
-          </button>
-          <span class="skfb-badge">Interactive Sketchfab Model</span>
-        </div>
-        <iframe title="WWII Military Ammunition Crate" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" data-src="https://sketchfab.com/models/c1cd507941344d6cbc1d08b12511f520/embed?autostart=1&ui_theme=dark&ui_infos=0&ui_watermark=0&ui_controls=1"></iframe>
-        <div class="skfb-index">06 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-n">Prop · Weathering Study</div>
-        <h3 class="proj-title">WW2 WOODEN<br><em>CRATE</em></h3>
-        <p class="proj-write">An older asset brought back for a full retexture — no remodeling, the entire focus was in Substance Painter. Built up an aged wood look with grime settling into the grain and chipped edges to sell the idea of a crate that's been knocked around and used hard. Rendered in Blender for final presentation.</p>
-        <div class="proj-tools">
-          <span class="ptool">Blender</span>
-          <span class="ptool">Substance Painter</span>
-          <span class="ptool">Weathering</span>
-          <span class="ptool">PBR</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 07 – ZBrush High Poly Sculpt -->
-    <div class="proj-item reveal">
-      <div class="proj-img-wrap">
-        <img src="Screenshot_2025-03-24_103804.png" alt="ZBrush high poly character sculpt">
-        <div class="proj-index">07 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-n">High Poly Sculpt · Character</div>
-        <h3 class="proj-title">TACTICAL CHARACTER<br><em>HIGH POLY SCULPT</em></h3>
-        <p class="proj-write">Full-body high-poly character sculpt in ZBrush exploring anatomy under costume, cloth folds, and tactical gear. Believable muscle structure beneath the tunic combined with hard-surface pouches, pauldrons, and knee guards. A study in blending organic and hard-surface workflows in a single piece.</p>
-        <div class="proj-tools">
-          <span class="ptool">ZBrush</span>
-          <span class="ptool">Character Sculpting</span>
-          <span class="ptool">Organic + Hard Surface</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 08 – Sci-Fi Weapon -->
-    <div class="proj-item flip reveal">
-      <div class="proj-img-wrap">
-        <img src="Rifle_Render.png" alt="Neon Trigger sci-fi rifle textured and wireframe">
-        <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-index">08 / 09</div>
-      </div>
-      <div class="proj-info">
-        <div class="proj-n">Hard Surface · Weapon</div>
-        <h3 class="proj-title">SCI-FI WEAPON<br><em>PROP</em></h3>
-        <p class="proj-write">Hard-surface weapon prop for Neon Trigger. Clean panel geometry on the low poly brought to life with neon textures, emissive accents, and metallic panels in Substance Painter. Built game-ready and integrated directly into the Neon Trigger asset pipeline.</p>
-        <div class="proj-tools">
-          <span class="ptool">Blender</span>
-          <span class="ptool">Substance Painter</span>
-          <span class="ptool">Emissive Materials</span>
-          <span class="ptool">Game-Ready</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 09 – Modular Ruins -->
+    <!-- 03 – Ammo Crate -->
     <div class="proj-item reveal">
       <div class="proj-img-duo">
-        <img src="Screenshot_2025-03-11_133807.png" alt="Modular ruins kit render 1">
-        <img src="Screenshot_2025-03-11_134059.png" alt="Modular ruins kit render 2">
+        <img src="Box_Renders.png" alt="Ammo Crate — front angle">
+        <img src="Box_Renders3.png" alt="Ammo Crate — top angle">
       </div>
       <div class="proj-info">
-        <div class="proj-n">Environment · Modular Kit</div>
-        <h3 class="proj-title">MODULAR RUINS<br><em>ENVIRONMENT KIT</em></h3>
-        <p class="proj-write">Modular stone ruins kit built for real-time use. Tileable pieces — walls, arches, columns, rubble — designed to snap together in multiple configurations, giving level designers flexibility without redundant assets. Hand-painted texturing gives a stylized, game-friendly aesthetic that reads well at play distance.</p>
+        <div class="proj-n">Hard Surface · Environment Prop</div>
+        <h3 class="proj-title">MILITARY<br><em>AMMO CRATE</em></h3>
+        <p class="proj-write">Weathered wooden ammunition crate with metal hardware. Modeled in Blender with clean topology, textured in Substance Painter — wood grain, metal clasps, and edge wear all driven by smart materials and hand-painted details.</p>
         <div class="proj-tools">
           <span class="ptool">Blender</span>
-          <span class="ptool">Modular Design</span>
-          <span class="ptool">UV Mapping</span>
+          <span class="ptool">Substance Painter</span>
+          <span class="ptool">Environment Art</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 – Neon Trigger Robot Character -->
+    <div class="proj-item flip reveal">
+      <div class="proj-img-wrap">
+        <img src="Character_Sheet.png" alt="Neon Trigger Robot Character Sheet">
+        <div class="proj-studio">Bit Loaf Studio</div>
+        <div class="proj-index">04 / 07</div>
+      </div>
+      <div class="proj-info">
+        <div class="proj-n">Character · Game-Ready</div>
+        <h3 class="proj-title">NEON TRIGGER<br><em>ROBOT CHARACTER</em></h3>
+        <p class="proj-write">Low-poly character for Neon Trigger built at Bit Loaf Studio. Modeled the base mesh in Maya, then rebuilt a high poly on top. Three-view character sheet showing front, 3/4, and back for production reference.</p>
+        <div class="proj-tools">
+          <span class="ptool">Maya</span>
+          <span class="ptool">Low Poly</span>
+          <span class="ptool">Character</span>
+          <span class="ptool">Bit Loaf Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 – Neon Trigger Weapons Arsenal -->
+    <div class="proj-item reveal">
+      <div class="proj-img-wrap">
+        <img src="Rifle_Render.png" alt="Neon Trigger Weapons Arsenal">
+        <div class="proj-studio">Bit Loaf Studio</div>
+        <div class="proj-index">05 / 07</div>
+      </div>
+      <div class="proj-info">
+        <div class="proj-n">Hard Surface · Weapons</div>
+        <h3 class="proj-title">NEON TRIGGER<br><em>WEAPONS ARSENAL</em></h3>
+        <p class="proj-write">Full weapon lineup for Neon Trigger — rifle, pistol, shotgun, and uzi. Each modeled low-poly in Maya with clean topology, then textured with neon emissive accents and sci-fi materials. Shown with wireframe overlays for production breakdown.</p>
+        <div class="proj-tools">
+          <span class="ptool">Maya</span>
+          <span class="ptool">Substance Painter</span>
+          <span class="ptool">Emissive</span>
+          <span class="ptool">Game-Ready</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 – Neon Trigger Props -->
+    <div class="proj-item flip reveal">
+      <div class="proj-img-duo">
+        <img src="Health_Upgrade.png" alt="Neon Trigger Health Upgrade">
+        <img src="Jetpack.png" alt="Neon Trigger Jetpack">
+      </div>
+      <div class="proj-info">
+        <div class="proj-n">Hard Surface · Game Props</div>
+        <h3 class="proj-title">NEON TRIGGER<br><em>PICKUP PROPS</em></h3>
+        <p class="proj-write">In-game pickup items for Neon Trigger — health upgrade kit and jetpack boost. Both modeled low-poly with wireframe breakdowns showing clean topology ready for engine integration.</p>
+        <div class="proj-tools">
+          <span class="ptool">Maya</span>
+          <span class="ptool">Low Poly</span>
+          <span class="ptool">Game Props</span>
+          <span class="ptool">Bit Loaf Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 – Tundra Scout -->
+    <div class="proj-item reveal">
+      <div class="proj-img-wrap">
+        <img src="TundraScoutFinalRender.png" alt="Tundra Scout Character">
+        <div class="proj-index">07 / 07</div>
+      </div>
+      <div class="proj-info">
+        <div class="proj-n">Character · Stylized</div>
+        <h3 class="proj-title">TUNDRA<br><em>SCOUT</em></h3>
+        <p class="proj-write">Stylized character concept — a rugged arctic scout with layered clothing, a bolt-action rifle, and hand-painted textures. Combines organic sculpting for the body with hard-surface modeling for the gear and weapon.</p>
+        <div class="proj-tools">
+          <span class="ptool">ZBrush</span>
+          <span class="ptool">Blender</span>
           <span class="ptool">Hand-Painted</span>
+          <span class="ptool">Character</span>
         </div>
       </div>
     </div>
@@ -1735,28 +1793,61 @@ function loadYT(wrapperId) {
   setTimeout(() => wrap.classList.add('loaded'), 3000);
 }
 
-/* binder navigation */
-let bookPage = 0;
-const bookTotal = 5;
+/* auto-rotating showcase */
+let slideIdx = 0;
+const slideTotal = 5;
+let slideTimer = null;
+let isTransitioning = false;
 
-function bookGo(n) {
-  const slider = document.getElementById('binderSlider');
-  const tabs = document.querySelectorAll('.binder-tab');
+function goSlide(n) {
+  if (n === slideIdx || isTransitioning) return;
+  isTransitioning = true;
 
-  tabs[bookPage].classList.remove('active');
-  tabs[n].classList.add('active');
+  const slides = document.querySelectorAll('.showcase-slide');
+  const dots = document.querySelectorAll('.showcase-dot');
 
-  slider.style.transform = 'translateX(' + (-n * 100) + '%)';
+  const oldSlide = slides[slideIdx];
+  const newSlide = slides[n];
 
-  bookPage = n;
-  document.getElementById('bookPrev').disabled = bookPage === 0;
-  document.getElementById('bookNext').disabled = bookPage === bookTotal - 1;
+  // exit old
+  oldSlide.classList.remove('active');
+  oldSlide.classList.add('exiting');
+  dots[slideIdx].classList.remove('active');
+
+  // enter new
+  newSlide.classList.add('active');
+  dots[n].classList.add('active');
+
+  slideIdx = n;
+  resetSlideTimer();
+
+  // cleanup after transition
+  setTimeout(() => {
+    oldSlide.classList.remove('exiting');
+    isTransitioning = false;
+  }, 650);
 }
 
-function bookNav(dir) {
-  const next = bookPage + dir;
-  if (next >= 0 && next < bookTotal) bookGo(next);
+function navSlide(dir) {
+  goSlide((slideIdx + dir + slideTotal) % slideTotal);
 }
+
+function nextSlide() {
+  goSlide((slideIdx + 1) % slideTotal);
+}
+
+function resetSlideTimer() {
+  clearInterval(slideTimer);
+  // restart dot animations
+  document.querySelectorAll('.showcase-dot-fill').forEach(f => {
+    f.style.animation = 'none';
+    f.offsetHeight;
+    f.style.animation = '';
+  });
+  slideTimer = setInterval(nextSlide, 4000);
+}
+
+resetSlideTimer();
 
 /* ── SCROLL REVEAL ── */
 const revealObserver = new IntersectionObserver((entries) => {
@@ -1792,7 +1883,7 @@ document.addEventListener('mousemove', e => {
   curR.style.left = mx + 'px';
   curR.style.top  = my + 'px';
 });
-document.querySelectorAll('a, button, .proj-item, .hero-model-btn, .binder-tab, .binder-nav-btn').forEach(el => {
+document.querySelectorAll('a, button, .proj-item, .showcase-dot, .showcase-nav-btn').forEach(el => {
   el.addEventListener('mouseenter', () => {
     cur.style.width = '12px'; cur.style.height = '12px';
   });
