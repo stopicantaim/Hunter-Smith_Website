@@ -1229,83 +1229,168 @@ footer {
 }
 
 
-/* ── READABILITY + SKETCHFAB LINKS ── */
-.hero-chip-label,
-.hero-panel-label,
-.hero-stat-label,
-.foot-tagline,
-.foot-copy,
-.showcase-cat,
-.book-cat,
-.port-over,
-.c-over,
-.section-lbl,
-.clink-lbl,
-.cert-item {
-  color: rgba(28,28,27,0.78) !important;
-}
 
-.hero-chip-value,
-.hero-focus p,
-.hero-desc,
-.showcase-desc,
-.proj-write,
-.bio,
-.contact-intro,
-.edu-degree,
-.clink-val {
-  color: rgba(28,28,27,0.86) !important;
+/* ── HOME PAGE LAYOUT OVERRIDES ── */
+#home .hero-wrap {
+  max-width: 1600px;
+  padding: 72px 4vw 60px;
 }
-
-.hero-chip-card,
-.hero-panel-card,
-.proj-info,
-.showcase-info,
-footer {
-  background: #f8f8f6 !important;
+.hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: 42px;
+  align-items: start;
+  margin-bottom: 22px;
 }
-
-.hero-chip-card,
+.hero-copy { min-width: 0; }
+.hero-copy .hero-name { margin-bottom: 26px; }
+.hero-copy .hero-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.hero-copy .hero-desc {
+  max-width: 820px;
+  font-size: 16px;
+}
+.hero-panel {
+  opacity: 0;
+  animation: fadeUp 0.6s 0.65s forwards;
+}
 .hero-panel-card {
-  border: 1px solid rgba(28,28,27,0.20) !important;
+  background: var(--panel);
+  border: 1px solid var(--rim);
+  padding: 28px;
+  box-shadow: 0 12px 28px rgba(28,28,27,0.05);
+  position: relative;
 }
-
-.sketchfab-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  margin-top: 16px;
-  padding: 10px 14px;
-  border: 1px solid var(--accent);
+.hero-panel-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 2px;
   background: var(--accent);
-  color: #fff;
+}
+.hero-panel-label {
   font-family: var(--mono);
   font-size: 10px;
-  letter-spacing: 1.8px;
+  letter-spacing: 3px;
+  color: var(--ghost);
   text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.hero-stat {
+  border: 1px solid var(--rim);
+  background: rgba(255,255,255,0.35);
+  padding: 14px 12px;
+}
+.hero-stat-value {
+  display: block;
+  font-family: var(--syne);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--white);
+}
+.hero-stat-label {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--ghost);
+}
+.hero-focus {
+  padding-top: 18px;
+  border-top: 1px solid var(--rim);
+}
+.hero-focus-title {
+  font-family: var(--syne);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.hero-focus p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--mist);
+}
+.hero-panel-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.hero-mini-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white);
   text-decoration: none;
-  transition: all 0.2s ease;
+  padding: 9px 12px;
+  border: 1px solid var(--rim);
+  background: var(--night);
+  transition: all 0.2s;
 }
-
-.sketchfab-link:hover {
-  background: var(--accent2);
-  border-color: var(--accent2);
-  transform: translateY(-1px);
+.hero-mini-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accentdim);
 }
-
-.showcase-info .sketchfab-link {
-  margin-top: 18px;
+.hero-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 12px 0 40px;
 }
-
-.proj-tools + .sketchfab-link {
-  margin-top: 18px;
+.hero-chip-card {
+  background: var(--panel);
+  border: 1px solid var(--rim);
+  padding: 18px 20px;
+  box-shadow: 0 6px 16px rgba(28,28,27,0.03);
 }
-
-/* Hide small number counters that were hard to read */
-.showcase-num,
-.proj-index {
-  display: none !important;
+.hero-chip-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ghost);
+  margin-bottom: 10px;
+}
+.hero-chip-value {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--mist);
+}
+#home .hero-showcase {
+  margin-top: 0;
+}
+#home .showcase-rotator {
+  min-height: 420px;
+}
+#home .showcase-slide {
+  grid-template-columns: minmax(420px, 1.05fr) minmax(420px, 0.95fr);
+}
+#home .showcase-info {
+  padding: 44px 40px;
+}
+#home .showcase-title {
+  font-size: clamp(28px, 2.8vw, 42px);
+}
+#home .showcase-desc {
+  max-width: 520px;
 }
 
 /* ── RESPONSIVE ── */
@@ -1343,6 +1428,38 @@ footer {
   .cursor, .cursor-ring { display: none; }
   body { cursor: auto; }
   * { cursor: auto !important; }
+}
+
+
+
+@media (max-width: 1200px) {
+  .hero-main {
+    grid-template-columns: 1fr;
+  }
+  .hero-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  #home .hero-wrap {
+    padding: 48px 24px 40px;
+    max-width: none;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-stats,
+  .hero-strip {
+    grid-template-columns: 1fr;
+  }
+  .hero-panel-card,
+  .hero-chip-card {
+    padding: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1483,32 +1600,87 @@ footer {
 <!-- ══════════════════ HOME ══════════════════ -->
 <section id="home" class="visible">
   <div class="hero-wrap">
-    <div class="hero-meta">3D ARTIST &nbsp;·&nbsp; SMITHFIELD, NC &nbsp;·&nbsp; 2026</div>
+    <div class="hero-main">
+      <div class="hero-copy">
+        <div class="hero-meta">3D ARTIST &nbsp;·&nbsp; SMITHFIELD, NC &nbsp;·&nbsp; 2026</div>
 
-    <h1 class="hero-name">
-      <span class="dim">HUNTER</span>
-      <span class="accent">SMITH</span>
-    </h1>
+        <h1 class="hero-name">
+          <span class="dim">HUNTER</span>
+          <span class="accent">SMITH</span>
+        </h1>
 
-    <div class="hero-bottom">
-      <p class="hero-desc">
-        I build <strong>game-ready 3D assets</strong> — hard-surface props, character sculpts, and environments — for games and interactive media. Currently finishing my AAS at <strong>Wake Technical Community College</strong> and shipping work with <strong>Bit Loaf Studio</strong> on Neon Trigger.
-      </p>
-      <div class="hero-right">
-        <div class="hero-tags">
-          <span class="htag hi">Hard Surface</span>
-          <span class="htag hi">Character</span>
-          <span class="htag">Environment</span>
-          <span class="htag">ZBrush</span>
-          <span class="htag">Blender</span>
-          <span class="htag">Substance</span>
-          <span class="htag">UE5</span>
-          <span class="htag">Maya</span>
+        <div class="hero-bottom">
+          <p class="hero-desc">
+            I build <strong>game-ready 3D assets</strong> for games and interactive media, with a focus on <strong>hard-surface props, stylized characters, and production-ready presentation</strong>. I'm currently finishing my AAS at <strong>Wake Technical Community College</strong> and shipping work with <strong>Bit Loaf Studio</strong> on Neon Trigger.
+          </p>
+          <div class="hero-right">
+            <div class="hero-tags">
+              <span class="htag hi">Hard Surface</span>
+              <span class="htag hi">Character</span>
+              <span class="htag">Environment</span>
+              <span class="htag">ZBrush</span>
+              <span class="htag">Blender</span>
+              <span class="htag">Substance</span>
+              <span class="htag">UE5</span>
+              <span class="htag">Maya</span>
+            </div>
+            <div class="hero-btns">
+              <a class="btn-primary" href="#" onclick="show('portfolio');return false;">View Work</a>
+              <a class="btn-line" href="#" onclick="show('contact');return false;">Contact <span>→</span></a>
+            </div>
+          </div>
         </div>
-        <div class="hero-btns">
-          <a class="btn-primary" href="#" onclick="show('portfolio');return false;">View Work</a>
-          <a class="btn-line" href="#" onclick="show('contact');return false;">Contact <span>→</span></a>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="hero-panel-card">
+          <div class="hero-panel-label">// Quick Overview</div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-value">07</span>
+              <span class="hero-stat-label">Featured Projects</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">04</span>
+              <span class="hero-stat-label">Sketchfab Links</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">2026</span>
+              <span class="hero-stat-label">Graduation Goal</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value">OPEN</span>
+              <span class="hero-stat-label">Freelance / Internship</span>
+            </div>
+          </div>
+
+          <div class="hero-focus">
+            <div class="hero-focus-title">Current Focus</div>
+            <p>
+              Building stronger portfolio pieces, improving presentation quality, and pushing game-ready assets that show clean modeling, believable materials, and strong visual design.
+            </p>
+            <div class="hero-panel-links">
+              <a class="hero-mini-link" href="https://stopicantdraw.artstation.com" target="_blank">ArtStation ↗</a>
+              <a class="hero-mini-link" href="https://www.linkedin.com/in/hunter-smith-9823a3261/" target="_blank">LinkedIn ↗</a>
+              <a class="hero-mini-link" href="mailto:Stopicantmodel@gmail.com">Email ↗</a>
+            </div>
+          </div>
         </div>
+      </aside>
+    </div>
+
+    <div class="hero-strip">
+      <div class="hero-chip-card">
+        <div class="hero-chip-label">Specialties</div>
+        <div class="hero-chip-value">Weapons, Props, Characters, Stylized Presentation</div>
+      </div>
+      <div class="hero-chip-card">
+        <div class="hero-chip-label">Pipeline</div>
+        <div class="hero-chip-value">Blockout → High Poly → Low Poly → UVs → Texture → Engine</div>
+      </div>
+      <div class="hero-chip-card">
+        <div class="hero-chip-label">Currently Using</div>
+        <div class="hero-chip-value">Blender, Maya, ZBrush, Substance Painter, Unreal Engine 5</div>
       </div>
     </div>
 
@@ -1531,7 +1703,6 @@ footer {
               <span class="showcase-tool">Substance Painter</span>
               <span class="showcase-tool">PBR</span>
             </div>
-            <a class="sketchfab-link" href="https://skfb.ly/pI8V6" target="_blank" rel="noopener">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1567,7 +1738,6 @@ footer {
               <span class="showcase-tool">Blender</span>
               <span class="showcase-tool">Retopology</span>
             </div>
-            <a class="sketchfab-link" href="https://skfb.ly/pIWTH" target="_blank" rel="noopener">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1602,7 +1772,6 @@ footer {
               <span class="showcase-tool">Blender</span>
               <span class="showcase-tool">Hand-Painted</span>
             </div>
-            <a class="sketchfab-link" href="https://skfb.ly/pwLsE" target="_blank" rel="noopener">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1654,8 +1823,6 @@ footer {
           <span class="ptool">PBR</span>
           <span class="ptool">Game-Ready</span>
         </div>
-        <a class="sketchfab-link" href="https://skfb.ly/pI8V6" target="_blank" rel="noopener">View on Sketchfab →</a>
-            <a class="sketchfab-link" href="https://skfb.ly/pI8V6" target="_blank" rel="noopener">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1675,8 +1842,6 @@ footer {
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Retopology</span>
         </div>
-        <a class="sketchfab-link" href="https://skfb.ly/pIWTH" target="_blank" rel="noopener">View on Sketchfab →</a>
-            <a class="sketchfab-link" href="https://skfb.ly/pIWTH" target="_blank" rel="noopener">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1695,8 +1860,6 @@ footer {
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Environment Art</span>
         </div>
-        <a class="sketchfab-link" href="https://skfb.ly/prDX9" target="_blank" rel="noopener">View on Sketchfab →</a>
-            <a class="sketchfab-link" href="https://skfb.ly/prDX9" target="_blank" rel="noopener">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1776,8 +1939,6 @@ footer {
           <span class="ptool">Hand-Painted</span>
           <span class="ptool">Character</span>
         </div>
-        <a class="sketchfab-link" href="https://skfb.ly/pwLsE" target="_blank" rel="noopener">View on Sketchfab →</a>
-            <a class="sketchfab-link" href="https://skfb.ly/pwLsE" target="_blank" rel="noopener">View on Sketchfab →</a>
       </div>
     </div>
 
