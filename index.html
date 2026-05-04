@@ -294,9 +294,7 @@ section.visible { display: block; }
 }
 
 .showcase-num {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-  color: var(--ghost); text-transform: uppercase;
-  margin-bottom: 24px;
+  display: none;
 }
 
 .showcase-title {
@@ -899,9 +897,7 @@ section.visible { display: block; }
 
 /* index number overlay */
 .proj-index {
-  position: absolute; bottom: 14px; left: 16px; z-index: 3;
-  font-family: var(--syne); font-size: 11px; font-weight: 800;
-  color: rgba(0,0,0,0.25); letter-spacing: 2px;
+  display: none;
 }
 
 /* studio badge overlay */
@@ -937,6 +933,30 @@ section.visible { display: block; }
 }
 
 .proj-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+
+
+.sketchfab-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-top: 18px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  border: 1px solid rgba(74,144,217,0.35);
+  padding: 9px 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: var(--accentdim);
+  transition: all 0.2s;
+}
+.sketchfab-link:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
 
 /* ── POLISHED CONTACT PAGE ── */
 #contact { min-height: 100vh; padding: 100px 5vw 80px; }
@@ -1451,6 +1471,7 @@ footer {
               <span class="showcase-tool">Substance Painter</span>
               <span class="showcase-tool">PBR</span>
             </div>
+            <a class="sketchfab-link" href="https://skfb.ly/pI8V6" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1486,6 +1507,7 @@ footer {
               <span class="showcase-tool">Blender</span>
               <span class="showcase-tool">Retopology</span>
             </div>
+            <a class="sketchfab-link" href="https://skfb.ly/pIWTH" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1520,6 +1542,7 @@ footer {
               <span class="showcase-tool">Blender</span>
               <span class="showcase-tool">Hand-Painted</span>
             </div>
+            <a class="sketchfab-link" href="https://skfb.ly/pwLsE" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
           </div>
         </div>
 
@@ -1571,6 +1594,7 @@ footer {
           <span class="ptool">PBR</span>
           <span class="ptool">Game-Ready</span>
         </div>
+        <a class="sketchfab-link" href="https://skfb.ly/pI8V6" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1590,6 +1614,7 @@ footer {
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Retopology</span>
         </div>
+        <a class="sketchfab-link" href="https://skfb.ly/pIWTH" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1608,6 +1633,7 @@ footer {
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Environment Art</span>
         </div>
+        <a class="sketchfab-link" href="https://skfb.ly/prDX9" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
       </div>
     </div>
 
@@ -1687,6 +1713,7 @@ footer {
           <span class="ptool">Hand-Painted</span>
           <span class="ptool">Character</span>
         </div>
+        <a class="sketchfab-link" href="https://skfb.ly/pwLsE" target="_blank" rel="noopener noreferrer">View on Sketchfab →</a>
       </div>
     </div>
 
