@@ -223,12 +223,12 @@ section.visible { display: block; }
   inset: 0;
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  min-height: 320px;
   opacity: 0;
   transform: translateX(30px);
   transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
   pointer-events: none;
   visibility: hidden;
+  overflow: hidden;
 }
 .showcase-slide.active {
   opacity: 1;
@@ -1714,14 +1714,14 @@ footer {
             <div><div class="clink-lbl">Phone</div><div class="clink-val">919-703-8438</div></div>
             <span class="clink-arr">→</span>
           </a>
-          <a class="clink" href="https://www.stopicantmodel.com" target="_blank">
-            <div class="clink-icon">WEB</div>
-            <div><div class="clink-lbl">Website</div><div class="clink-val">www.STOPICANTMODEL.com</div></div>
+          <a class="clink" href="https://stopicantdraw.artstation.com" target="_blank">
+            <div class="clink-icon">AS</div>
+            <div><div class="clink-lbl">ArtStation</div><div class="clink-val">stopicantdraw.artstation.com</div></div>
             <span class="clink-arr">→</span>
           </a>
-          <a class="clink" href="https://linkedin.com/in/stopicantmodel" target="_blank">
+          <a class="clink" href="https://www.linkedin.com/in/hunter-smith-9823a3261/" target="_blank">
             <div class="clink-icon">in</div>
-            <div><div class="clink-lbl">LinkedIn</div><div class="clink-val">STOPICANTMODEL</div></div>
+            <div><div class="clink-lbl">LinkedIn</div><div class="clink-val">Hunter Smith</div></div>
             <span class="clink-arr">→</span>
           </a>
           <a class="clink" href="#">
@@ -1751,10 +1751,9 @@ footer {
       <div class="foot-tagline">3D Artist · Hard Surface · Character · Environment</div>
     </div>
     <div class="foot-links">
-      <a class="foot-link" href="mailto:Stopicantmodel@gmail.com">Email</a>
-      <a class="foot-link" href="https://linkedin.com/in/stopicantmodel" target="_blank">LinkedIn</a>
-      <a class="foot-link" href="https://www.stopicantmodel.com" target="_blank">Website</a>
-      <a class="foot-link" href="tel:9197038438">Phone</a>
+      <a class="foot-link" href="#" onclick="show('contact');return false;">Contact</a>
+      <a class="foot-link" href="https://www.linkedin.com/in/hunter-smith-9823a3261/" target="_blank">LinkedIn</a>
+      <a class="foot-link" href="https://stopicantdraw.artstation.com" target="_blank">ArtStation</a>
     </div>
   </div>
   <div class="foot-bottom">
