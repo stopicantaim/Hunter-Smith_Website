@@ -19,8 +19,8 @@
   --rim: rgba(28,28,27,0.18);
   --rim2: rgba(28,28,27,0.28);
   --white: #1c1c1b;
-  --mist: rgba(28,28,27,0.86);
-  --ghost: rgba(28,28,27,0.74);
+  --mist: rgba(28,28,27,0.92);
+  --ghost: rgba(28,28,27,0.80);
   --syne: 'Syne', sans-serif;
   --mono: 'Syne Mono', monospace;
   --body: 'DM Sans', sans-serif;
@@ -31,7 +31,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--body);
-  background: var(--night);
+  background: linear-gradient(165deg, #EAEAE8 0%, #E2E4E6 30%, #EAEAE8 50%, #E6E8EA 75%, #EAEAE8 100%);
+  background-attachment: fixed;
   color: var(--white);
   overflow-x: hidden;
   cursor: none;
@@ -126,7 +127,7 @@ nav::after {
 .nav-links { display: flex; align-items: center; gap: 0; }
 .nav-btn {
   font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
-  color: var(--ghost); background: none; border: none;
+  color: var(--mist); background: none; border: none;
   padding: 8px 16px; cursor: none; text-decoration: none;
   transition: color 0.2s; text-transform: uppercase;
 }
@@ -156,7 +157,7 @@ section.visible { display: block; }
 }
 
 .hero-meta {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 4px; font-weight: 500;
   color: var(--mist); margin-bottom: 32px;
   display: flex; align-items: center; gap: 16px;
   opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
@@ -295,7 +296,7 @@ section.visible { display: block; }
 
 .showcase-num {
   font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-  color: var(--ghost); text-transform: uppercase;
+  color: var(--mist); text-transform: uppercase;
   margin-bottom: 24px;
 }
 
@@ -308,7 +309,7 @@ section.visible { display: block; }
 
 .showcase-cat {
   font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--ghost); text-transform: uppercase;
+  color: var(--mist); text-transform: uppercase;
   margin-bottom: 16px;
 }
 
@@ -322,7 +323,7 @@ section.visible { display: block; }
 }
 .showcase-tool {
   font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
-  color: var(--ghost); border: 1px solid var(--rim);
+  color: var(--mist); border: 1px solid var(--rim);
   padding: 4px 10px; text-transform: uppercase;
 }
 
@@ -363,7 +364,7 @@ section.visible { display: block; }
   width: 32px; height: 32px;
   background: var(--panel); border: 1px solid var(--rim);
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; color: var(--ghost);
+  font-size: 13px; color: var(--mist);
   cursor: none; transition: all 0.2s; border-radius: 2px;
 }
 .showcase-nav-btn:hover { color: var(--accent); border-color: var(--accent); }
@@ -433,7 +434,7 @@ section.visible { display: block; }
 }
 .hero-model-label-cat {
   font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--ghost); text-transform: uppercase; margin-top: 2px;
+  color: var(--mist); text-transform: uppercase; margin-top: 2px;
 }
 
 /* blue glow border on model */
@@ -445,7 +446,7 @@ section.visible { display: block; }
 .hero-model:hover::after { border-color: var(--accent); }
 
 .hero-meta {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 4px; font-weight: 500;
   color: var(--mist); margin-bottom: 32px;
   display: flex; align-items: center; gap: 16px;
   opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
@@ -484,7 +485,7 @@ section.visible { display: block; }
 }
 .htag {
   font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--ghost); border: 1px solid var(--rim);
+  color: var(--mist); border: 1px solid var(--rim);
   padding: 5px 12px; text-transform: uppercase;
   transition: all 0.2s;
 }
@@ -540,7 +541,7 @@ section.visible { display: block; }
   border-radius: 6px 6px 0 0;
   cursor: none;
   font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px;
-  color: var(--ghost);
+  color: var(--mist);
   text-transform: uppercase;
   transition: all 0.2s;
   position: relative;
@@ -615,7 +616,7 @@ section.visible { display: block; }
 
 .book-num {
   font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-  color: var(--ghost); text-transform: uppercase;
+  color: var(--mist); text-transform: uppercase;
   margin-bottom: 24px;
 }
 
@@ -628,7 +629,7 @@ section.visible { display: block; }
 
 .book-cat {
   font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--ghost); text-transform: uppercase;
+  color: var(--mist); text-transform: uppercase;
   margin-bottom: 16px;
 }
 
@@ -642,7 +643,7 @@ section.visible { display: block; }
 }
 .book-tool {
   font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
-  color: var(--ghost); border: 1px solid var(--rim);
+  color: var(--mist); border: 1px solid var(--rim);
   padding: 4px 10px; text-transform: uppercase;
 }
 
@@ -655,7 +656,7 @@ section.visible { display: block; }
   width: 36px; height: 36px;
   background: var(--panel); border: 1px solid var(--rim2);
   display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: var(--ghost);
+  font-size: 14px; color: var(--mist);
   cursor: none; transition: all 0.2s; border-radius: 2px;
 }
 .binder-nav-btn:hover { color: var(--accent); border-color: var(--accent); }
@@ -748,8 +749,8 @@ section.visible { display: block; }
 }
 .port-header-left {}
 .port-over {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
-  color: var(--ghost); text-transform: uppercase; margin-bottom: 10px;
+  font-family: var(--mono); font-size: 12px; letter-spacing: 4px; font-weight: 500;
+  color: var(--mist); text-transform: uppercase; margin-bottom: 10px;
 }
 .port-title {
   font-family: var(--syne); font-size: clamp(40px,5vw,72px);
@@ -757,7 +758,7 @@ section.visible { display: block; }
 }
 .port-title em { color: var(--accent); font-style: normal; }
 .port-count {
-  font-family: var(--mono); font-size: 11px; color: var(--ghost);
+  font-family: var(--mono); font-size: 11px; color: var(--mist);
   letter-spacing: 2px; align-self: flex-start; padding-top: 8px;
 }
 
@@ -834,7 +835,7 @@ section.visible { display: block; }
 /* tool tags animate on hover */
 .ptool {
   font-family: var(--mono); font-size: 9px; letter-spacing: 1px;
-  color: var(--ghost); border: 1px solid var(--rim);
+  color: var(--mist); border: 1px solid var(--rim);
   padding: 4px 10px; text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
@@ -847,7 +848,7 @@ section.visible { display: block; }
 /* project number animates */
 .proj-n {
   font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-  color: var(--ghost); margin-bottom: 16px; text-transform: uppercase;
+  color: var(--mist); margin-bottom: 16px; text-transform: uppercase;
   display: flex; align-items: center; gap: 10px;
   transition: color 0.3s;
 }
@@ -938,6 +939,16 @@ section.visible { display: block; }
 
 .proj-tools { display: flex; gap: 6px; flex-wrap: wrap; }
 
+.proj-skfb {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: #fff; background: var(--accent);
+  padding: 10px 18px; text-decoration: none;
+  text-transform: uppercase; margin-top: 16px;
+  transition: background 0.2s;
+}
+.proj-skfb:hover { background: var(--accent2); }
+
 /* ── POLISHED CONTACT PAGE ── */
 #contact { min-height: 100vh; padding: 100px 5vw 80px; }
 
@@ -983,7 +994,7 @@ section.visible { display: block; }
   box-shadow: 0 2px 8px rgba(28,28,27,0.04);
 }
 
-.c-over { font-family: var(--mono); font-size: 10px; letter-spacing: 4px; color: var(--ghost); text-transform: uppercase; margin-bottom: 10px; }
+.c-over { font-family: var(--mono); font-size: 12px; letter-spacing: 4px; font-weight: 500; color: var(--mist); text-transform: uppercase; margin-bottom: 10px; }
 .c-title { font-family: var(--syne); font-size: clamp(40px,5vw,72px); font-weight: 800; letter-spacing: -1px; color: var(--white); line-height: 1; }
 .c-title em { color: var(--accent); font-style: normal; }
 
@@ -998,7 +1009,7 @@ section.visible { display: block; }
 
 .section-lbl {
   font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
-  color: var(--ghost); text-transform: uppercase; margin-bottom: 14px;
+  color: var(--mist); text-transform: uppercase; margin-bottom: 14px;
   display: flex; align-items: center; gap: 10px;
 }
 .section-lbl::after { content: ''; flex: 1; height: 1px; background: var(--rim); }
@@ -1037,9 +1048,9 @@ section.visible { display: block; }
 /* right col — contact links */
 .clinks { display: flex; flex-direction: column; gap: 3px; }
 
-.clink-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--ghost); text-transform: uppercase; }
+.clink-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 2px; color: var(--mist); text-transform: uppercase; }
 .clink-val { font-family: var(--body); font-size: 14px; color: var(--white); margin-top: 2px; }
-.clink-arr { margin-left: auto; color: var(--ghost); font-size: 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.clink-arr { margin-left: auto; color: var(--mist); font-size: 16px; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
 .clink:hover .clink-arr { color: var(--accent); transform: translateX(5px); }
 
 /* contact link cards — warmer hover */
@@ -1208,7 +1219,7 @@ footer {
 }
 .foot-copy {
   font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--ghost); text-transform: uppercase;
+  color: var(--mist); text-transform: uppercase;
 }
 .foot-copy a { color: var(--accent); text-decoration: none; }
 
@@ -1277,7 +1288,7 @@ footer {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 3px;
-  color: var(--ghost);
+  color: var(--mist);
   text-transform: uppercase;
   margin-bottom: 18px;
 }
@@ -1308,7 +1319,7 @@ footer {
   letter-spacing: 1.5px;
   line-height: 1.5;
   text-transform: uppercase;
-  color: var(--ghost);
+  color: var(--mist);
 }
 .hero-focus {
   padding-top: 18px;
@@ -1366,7 +1377,7 @@ footer {
   font-size: 9px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--ghost);
+  color: var(--mist);
   margin-bottom: 10px;
 }
 .hero-chip-value {
@@ -1912,20 +1923,21 @@ footer {
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Prop</div>
         <h3 class="proj-title">WW2 ENFIELD<br><em>NO.2 REVOLVER</em></h3>
-        <p class="proj-write">Built in Blender using Boolean-heavy workflows, pushed into a high poly for hard-surface details. Baked onto an optimized low poly and textured in Substance Painter — worn blued steel with a warm wooden grip.</p>
+        <p class="proj-write">Built in Blender using Boolean-heavy workflows, pushed into a high poly for hard-surface details. Baked onto an optimized low poly and textured in Substance Painter. Worn blued steel with a warm wooden grip.</p>
         <div class="proj-tools">
           <span class="ptool">Blender</span>
           <span class="ptool">Substance Painter</span>
           <span class="ptool">PBR</span>
           <span class="ptool">Game-Ready</span>
         </div>
+        <a class="proj-skfb" href="https://skfb.ly/pI8V6" target="_blank">🔄 View in 3D</a>
       </div>
     </div>
 
     <!-- 02 – Worn Leather Boots -->
     <div class="proj-item flip reveal">
       <div class="proj-img-wrap">
-        <img src="BootImage1.png" alt="Worn Leather Boots — front pair" loading="lazy" decoding="async">
+        <img src="BootImage1.png" alt="Worn Leather Boots" loading="lazy" decoding="async">
         <div class="proj-index">02 / 07</div>
       </div>
       <div class="proj-info">
@@ -1938,6 +1950,7 @@ footer {
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Retopology</span>
         </div>
+        <a class="proj-skfb" href="https://skfb.ly/pIWTH" target="_blank">🔄 View in 3D</a>
       </div>
     </div>
 
@@ -1950,12 +1963,13 @@ footer {
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Environment Prop</div>
         <h3 class="proj-title">MILITARY<br><em>AMMO CRATE</em></h3>
-        <p class="proj-write">Weathered wooden ammunition crate with metal hardware. Modeled in Blender with clean topology, textured in Substance Painter — wood grain, metal clasps, and edge wear all driven by smart materials and hand-painted details.</p>
+        <p class="proj-write">Weathered wooden ammunition crate with metal hardware. Modeled in Blender with clean topology, textured in Substance Painter. Wood grain, metal clasps, and edge wear all driven by smart materials and hand-painted details.</p>
         <div class="proj-tools">
           <span class="ptool">Blender</span>
           <span class="ptool">Substance Painter</span>
           <span class="ptool">Environment Art</span>
         </div>
+        <a class="proj-skfb" href="https://skfb.ly/prDX9" target="_blank">🔄 View in 3D</a>
       </div>
     </div>
 
@@ -1989,7 +2003,7 @@ footer {
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Weapons</div>
         <h3 class="proj-title">NEON TRIGGER<br><em>WEAPONS ARSENAL</em></h3>
-        <p class="proj-write">Full weapon lineup for Neon Trigger — rifle, pistol, shotgun, and uzi. Each modeled low-poly in Maya with clean topology, then textured with neon emissive accents and sci-fi materials. Shown with wireframe overlays for production breakdown.</p>
+        <p class="proj-write">Full weapon lineup for Neon Trigger including a rifle, pistol, shotgun, and uzi. Each modeled low-poly in Maya with clean topology, then textured with neon emissive accents and sci-fi materials. Shown with wireframe overlays for production breakdown.</p>
         <div class="proj-tools">
           <span class="ptool">Maya</span>
           <span class="ptool">Substance Painter</span>
@@ -2009,7 +2023,7 @@ footer {
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Game Props</div>
         <h3 class="proj-title">NEON TRIGGER<br><em>PICKUP PROPS</em></h3>
-        <p class="proj-write">In-game pickup items for Neon Trigger — health upgrade kit and jetpack boost. Both modeled low-poly with wireframe breakdowns showing clean topology ready for engine integration.</p>
+        <p class="proj-write">In-game pickup items for Neon Trigger. Health upgrade kit and jetpack boost. Both modeled low-poly with wireframe breakdowns showing clean topology ready for engine integration.</p>
         <div class="proj-tools">
           <span class="ptool">Maya</span>
           <span class="ptool">Low Poly</span>
@@ -2028,13 +2042,14 @@ footer {
       <div class="proj-info">
         <div class="proj-n">Character · Stylized</div>
         <h3 class="proj-title">TUNDRA<br><em>SCOUT</em></h3>
-        <p class="proj-write">Stylized character concept — a rugged arctic scout with layered clothing, a bolt-action rifle, and hand-painted textures. Combines organic sculpting for the body with hard-surface modeling for the gear and weapon.</p>
+        <p class="proj-write">Stylized character concept. A rugged arctic scout with layered clothing, a bolt-action rifle, and hand-painted textures. Combines organic sculpting for the body with hard-surface modeling for the gear and weapon.</p>
         <div class="proj-tools">
           <span class="ptool">ZBrush</span>
           <span class="ptool">Blender</span>
           <span class="ptool">Hand-Painted</span>
           <span class="ptool">Character</span>
         </div>
+        <a class="proj-skfb" href="https://skfb.ly/pwLsE" target="_blank">🔄 View in 3D</a>
       </div>
     </div>
 
@@ -2049,14 +2064,14 @@ footer {
       <h2 class="c-title">GET IN<br><em>TOUCH</em></h2>
     </div>
 
-    <p class="contact-intro reveal">Hey — I'm always happy to chat about <strong>3D art, game dev, or new projects</strong>. Whether you're a studio looking for a hard-surface artist, an indie team that needs props and characters, or just want to say hi — reach out.</p>
+    <p class="contact-intro reveal">Hey, I'm always happy to chat about <strong>3D art, game dev, or new projects</strong>. Whether you're a studio looking for a hard-surface artist, an indie team that needs props and characters, or just want to say hi, reach out.</p>
 
     <div class="contact-cols reveal">
       <div class="contact-left-card">
         <p class="bio">
-          I'm Hunter Smith — a 3D artist from Smithfield, NC finishing my AAS in Simulation & Game Development at Wake Tech (May 2026). I've shipped work with Bit Loaf Studio on Neon Trigger and contributed to Arctic Racing. I'm passionate about vehicle and hard-surface design and always pushing my texturing and sculpting skills further.
+          I'm Hunter Smith, a 3D artist from Smithfield, NC finishing my AAS in Simulation & Game Development at Wake Tech (May 2026). I've shipped work with Bit Loaf Studio on Neon Trigger and contributed to Arctic Racing. I'm passionate about vehicle and hard-surface design and always pushing my texturing and sculpting skills further.
           <br><br>
-          Open to freelance work, studio internships, and full-time roles. If you need a detail-driven artist who knows the full pipeline — sculpt to engine — let's talk.
+          Open to freelance work, studio internships, and full-time roles. If you need a detail-driven artist who knows the full pipeline from sculpt to engine, let's talk.
         </p>
 
         <div class="section-lbl">Education</div>
