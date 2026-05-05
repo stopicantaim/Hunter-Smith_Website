@@ -1181,9 +1181,8 @@ section.visible { display: block; }
 /* ── FOOTER ── */
 footer {
   position: relative; z-index: 2;
-  border-top: 1px solid var(--rim);
-  padding: 40px 5vw;
-  background: var(--panel);
+  padding: 48px 5vw;
+  background: var(--accent);
 }
 .foot-inner {
   max-width: 1300px; margin: 0 auto;
@@ -1191,16 +1190,16 @@ footer {
   gap: 40px; align-items: center;
 }
 .foot-brand {
-  display: flex; flex-direction: column; gap: 6px;
+  display: flex; flex-direction: column; gap: 8px;
 }
 .foot-name {
-  font-family: var(--syne); font-size: 18px; font-weight: 800;
-  letter-spacing: 1px; color: var(--white);
+  font-family: var(--syne); font-size: 22px; font-weight: 800;
+  letter-spacing: 1px; color: #fff;
 }
-.foot-name em { color: var(--accent); font-style: normal; }
+.foot-name em { color: rgba(255,255,255,0.6); font-style: normal; }
 .foot-tagline {
-  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
-  color: var(--mist); text-transform: uppercase;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 2px;
+  color: rgba(255,255,255,0.7); text-transform: uppercase;
 }
 
 .foot-links {
@@ -1208,27 +1207,27 @@ footer {
 }
 .foot-link {
   font-family: var(--mono); font-size: 10px; letter-spacing: 1px;
-  color: var(--mist); text-decoration: none;
-  padding: 8px 14px; border: 1px solid var(--rim);
+  color: #fff; text-decoration: none;
+  padding: 10px 16px; border: 1px solid rgba(255,255,255,0.35);
   text-transform: uppercase;
-  transition: all 0.2s; background: var(--night);
+  transition: all 0.2s; background: transparent;
 }
 .foot-link:hover {
-  color: var(--accent); border-color: var(--accent);
-  background: var(--accentdim);
+  background: #fff; color: var(--accent);
+  border-color: #fff;
 }
 
 .foot-bottom {
   max-width: 1300px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
-  padding-top: 20px; margin-top: 24px;
-  border-top: 1px solid var(--rim);
+  padding-top: 20px; margin-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.2);
 }
 .foot-copy {
-  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
-  color: var(--mist); text-transform: uppercase;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  color: rgba(255,255,255,0.5); text-transform: uppercase;
 }
-.foot-copy a { color: var(--accent); text-decoration: none; }
+.foot-copy a { color: #fff; text-decoration: none; }
 
 
 /* Better framing for tall or presentation-style images */
