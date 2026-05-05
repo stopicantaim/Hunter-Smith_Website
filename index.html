@@ -1412,78 +1412,87 @@ footer {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  nav { padding: 0 24px; }
+  /* nav */
+  nav { padding: 0 16px; }
   .nav-status { display: none; }
   .nav-links { gap: 0; }
   .nav-cta { display: none; }
-  section { padding-left: 24px; padding-right: 24px; }
-  .hero-wrap { padding: 0 24px; }
-  .hero-bottom { grid-template-columns: 1fr; gap: 28px; }
-  .hero-name { font-size: clamp(40px, 10vw, 64px); }
+  .nav-wordmark { font-size: 11px; letter-spacing: 2px; }
+  .nav-btn { padding: 8px 10px; font-size: 9px; }
+
+  /* sections */
+  section { padding-left: 16px; padding-right: 16px; }
+  #portfolio, #contact { padding-left: 16px; padding-right: 16px; }
+
+  /* hero */
+  .hero-wrap { padding: 0 16px; }
+  .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
+  .hero-name { font-size: clamp(36px, 10vw, 56px); }
+  .hero-meta { font-size: 10px; }
   .hero-showcase { margin-top: 32px; }
+  .hero-tags { gap: 4px; }
+  .htag { font-size: 8px; padding: 4px 8px; }
+  .hero-btns { flex-wrap: wrap; }
+
+  /* showcase */
   .showcase-slide { grid-template-columns: 1fr; }
   .showcase-slide.active { position: relative; }
-  .showcase-img { min-height: 220px; aspect-ratio: 16/10; }
-  .showcase-info { border-left: none; border-top: 1px solid var(--rim); padding: 24px 20px; }
-  .showcase-info::before { top: 24px; left: 20px; }
+  .showcase-img { min-height: 200px; aspect-ratio: 16/10; }
+  .showcase-info { border-left: none; border-top: 1px solid var(--rim); padding: 20px 16px; }
+  .showcase-info::before { top: 20px; left: 16px; }
+  .showcase-title { font-size: 20px; }
+  .showcase-controls { padding: 10px 12px; }
+
+  /* portfolio */
+  .port-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .port-count { padding-top: 0; }
   .proj-item, .proj-item.flip { grid-template-columns: 1fr; direction: ltr; transform: none !important; }
   .proj-item:hover { transform: none !important; box-shadow: none; }
   .proj-img-wrap { aspect-ratio: 16/10; }
-  .proj-img-duo { grid-template-columns: 1fr 1fr; aspect-ratio: 16/9; }
-  .proj-info { padding: 24px 20px; border-left: none; border-top: 1px solid var(--rim); }
+  .proj-info { padding: 20px 16px; border-left: none; border-top: 1px solid var(--rim); }
   .proj-item.flip .proj-info { border-right: none; border-top: 1px solid var(--rim); }
-  .proj-title { font-size: 22px; }
-  .contact-cols { grid-template-columns: 1fr; gap: 48px; }
+  .proj-title { font-size: 20px; }
+  .proj-write { font-size: 13px; }
+  .proj-tools { gap: 4px; }
+  .ptool { font-size: 8px; padding: 3px 8px; }
+  .proj-skfb { font-size: 9px; padding: 8px 14px; }
+
+  /* contact */
+  .contact-cols { grid-template-columns: 1fr; gap: 32px; }
+  .contact-head { margin-bottom: 32px; }
+  .contact-intro { padding: 20px; font-size: 14px; }
+  .contact-left-card, .contact-right-card { padding: 20px; }
   .skills-grid { grid-template-columns: 1fr; }
-  #portfolio, #contact { padding-left: 20px; padding-right: 20px; }
-  .port-header { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .port-count { padding-top: 0; }
-  .contact-head { margin-bottom: 40px; }
-  .hero-tags { gap: 4px; }
-  .htag { font-size: 8px; padding: 4px 8px; }
+  .c-title { font-size: clamp(32px, 8vw, 48px); }
+  .clink { padding: 14px 16px; }
+  .clink-icon { width: 36px; height: 36px; font-size: 10px; }
+
+  /* footer */
+  footer { padding: 32px 16px; }
+  .foot-inner { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .foot-brand { align-items: center; }
+  .foot-links { justify-content: center; flex-wrap: wrap; }
+  .foot-link { padding: 8px 12px; font-size: 9px; }
+  .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .foot-name { font-size: 18px; }
+
+  /* cursor off on touch */
   .doodles { display: none; }
   .cursor, .cursor-ring { display: none; }
   body { cursor: auto; }
   * { cursor: auto !important; }
 }
 
-
-
-@media (max-width: 1200px) {
-  .hero-main {
-    grid-template-columns: 1fr;
-  }
-  .hero-strip {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 900px) {
-  #home .hero-wrap {
-    padding: 48px 24px 40px;
-    max-width: none;
-  }
-  .hero-stats {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-stats,
-  .hero-strip {
-    grid-template-columns: 1fr;
-  }
-  .hero-panel-card,
-  .hero-chip-card {
-    padding: 18px;
-  }
-}
-
 @media (max-width: 480px) {
-  .hero-name { font-size: clamp(36px, 12vw, 52px); }
-  .hero-model { height: 220px; }
-  .nav-wordmark { font-size: 12px; letter-spacing: 2px; }
-  .nav-btn { padding: 8px 10px; font-size: 9px; }
+  .hero-name { font-size: clamp(32px, 12vw, 44px); }
+  .hero-desc { font-size: 13px; }
+  .showcase-img { min-height: 160px; }
+  .showcase-title { font-size: 18px; }
+  .showcase-desc { font-size: 12px; }
+  .btn-primary { padding: 11px 20px; font-size: 10px; }
+  .btn-line { font-size: 10px; }
+  .foot-links { gap: 4px; }
+  .foot-link { padding: 7px 10px; font-size: 8px; }
 }
 
 
@@ -1924,7 +1933,6 @@ footer {
     <div class="proj-item reveal">
       <div class="proj-img-wrap">
         <img src="MK1IMAGE1.png" alt="WW2 Enfield No.2 Revolver" loading="lazy" decoding="async">
-        <div class="proj-index">01 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Prop</div>
@@ -1944,7 +1952,6 @@ footer {
     <div class="proj-item flip reveal">
       <div class="proj-img-wrap">
         <img src="BootImage1.png" alt="Worn Leather Boots" loading="lazy" decoding="async">
-        <div class="proj-index">02 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Organic Sculpt · Prop</div>
@@ -1964,7 +1971,6 @@ footer {
     <div class="proj-item reveal">
       <div class="proj-img-wrap">
         <img src="BoxImage1.png" alt="Military Ammo Crate" loading="lazy" decoding="async">
-        <div class="proj-index">03 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Environment Prop</div>
@@ -1984,7 +1990,6 @@ footer {
       <div class="proj-img-wrap">
         <img src="CharacterImage1.png" alt="Neon Trigger Robot Character Sheet" loading="lazy" decoding="async">
         <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-index">04 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Character · Game-Ready</div>
@@ -2004,7 +2009,6 @@ footer {
       <div class="proj-img-wrap">
         <img src="Rifle1.png" alt="Neon Trigger Weapons Arsenal" loading="lazy" decoding="async">
         <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-index">05 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Weapons</div>
@@ -2024,7 +2028,6 @@ footer {
       <div class="proj-img-wrap">
         <img src="Health Upgrade.png" alt="Neon Trigger Health Upgrade" loading="lazy" decoding="async">
         <div class="proj-studio">Bit Loaf Studio</div>
-        <div class="proj-index">06 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Hard Surface · Game Props</div>
@@ -2043,7 +2046,6 @@ footer {
     <div class="proj-item reveal">
       <div class="proj-img-wrap">
         <img src="TundraScoutFinalRender.png" alt="Tundra Scout Character" loading="lazy" decoding="async">
-        <div class="proj-index">07 / 07</div>
       </div>
       <div class="proj-info">
         <div class="proj-n">Character · Stylized</div>
