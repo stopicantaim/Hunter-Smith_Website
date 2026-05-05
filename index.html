@@ -1590,6 +1590,94 @@ footer {
   border-color: rgba(28,28,27,0.22);
 }
 
+
+/* ── BIG HERO TITLE UPDATE ── */
+#home .hero-wrap {
+  max-width: 1700px;
+  padding: 90px 5vw 70px;
+  justify-content: flex-start;
+}
+
+#home .hero-meta {
+  font-size: clamp(11px, 0.75vw, 15px);
+  letter-spacing: 5px;
+  margin-bottom: 34px;
+}
+
+#home .hero-name {
+  font-size: clamp(96px, 13.5vw, 245px);
+  line-height: 0.82;
+  letter-spacing: -6px;
+  max-width: 1500px;
+  margin-bottom: 34px;
+}
+
+#home .hero-name .dim,
+#home .hero-name .accent {
+  display: block;
+}
+
+#home .hero-bottom {
+  max-width: 1100px;
+  gap: 28px;
+  margin-top: 0;
+}
+
+#home .hero-desc {
+  font-size: clamp(16px, 1vw, 20px);
+  line-height: 1.8;
+  max-width: 980px;
+}
+
+#home .hero-tags {
+  margin-bottom: 24px;
+}
+
+#home .htag {
+  font-size: 10px;
+  padding: 7px 14px;
+}
+
+#home .hero-btns .btn-primary,
+#home .hero-btns .btn-line {
+  font-size: 12px;
+}
+
+#home .hero-showcase {
+  margin-top: 82px;
+}
+
+@media (max-width: 900px) {
+  #home .hero-wrap {
+    padding: 72px 20px 48px;
+  }
+
+  #home .hero-name {
+    font-size: clamp(58px, 17vw, 120px);
+    letter-spacing: -3px;
+  }
+
+  #home .hero-desc {
+    font-size: 15px;
+  }
+
+  #home .hero-showcase {
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  #home .hero-name {
+    font-size: clamp(44px, 18vw, 82px);
+    letter-spacing: -2px;
+  }
+
+  #home .hero-meta {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+}
+
 </style>
 </head>
 <body>
