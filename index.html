@@ -1591,25 +1591,27 @@ footer {
 }
 
 
-/* ── BIG HERO TITLE UPDATE ── */
+
+/* ── BALANCED HERO TITLE + GAP FIX ── */
 #home .hero-wrap {
-  max-width: 1700px;
-  padding: 90px 5vw 70px;
+  max-width: 1550px;
+  padding: 76px 5vw 54px;
   justify-content: flex-start;
+  min-height: auto;
 }
 
 #home .hero-meta {
-  font-size: clamp(11px, 0.75vw, 15px);
-  letter-spacing: 5px;
-  margin-bottom: 34px;
+  font-size: clamp(10px, 0.68vw, 13px);
+  letter-spacing: 4px;
+  margin-bottom: 24px;
 }
 
 #home .hero-name {
-  font-size: clamp(96px, 13.5vw, 245px);
-  line-height: 0.82;
-  letter-spacing: -6px;
-  max-width: 1500px;
-  margin-bottom: 34px;
+  font-size: clamp(72px, 10.5vw, 178px);
+  line-height: 0.84;
+  letter-spacing: -4px;
+  max-width: 1280px;
+  margin-bottom: 26px;
 }
 
 #home .hero-name .dim,
@@ -1618,58 +1620,74 @@ footer {
 }
 
 #home .hero-bottom {
-  max-width: 1100px;
-  gap: 28px;
+  max-width: 1050px;
+  gap: 22px;
   margin-top: 0;
 }
 
 #home .hero-desc {
-  font-size: clamp(16px, 1vw, 20px);
-  line-height: 1.8;
-  max-width: 980px;
+  font-size: clamp(15px, 0.92vw, 18px);
+  line-height: 1.75;
+  max-width: 920px;
 }
 
 #home .hero-tags {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 #home .htag {
-  font-size: 10px;
-  padding: 7px 14px;
+  font-size: 9px;
+  padding: 6px 12px;
 }
 
 #home .hero-btns .btn-primary,
 #home .hero-btns .btn-line {
-  font-size: 12px;
+  font-size: 11px;
 }
 
+/* This closes the dead space under the hero text */
 #home .hero-showcase {
-  margin-top: 82px;
+  margin-top: 34px;
+  padding-top: 22px;
+}
+
+/* Let the featured section sit closer and feel connected */
+#home .showcase-rotator {
+  min-height: 390px;
+}
+
+#home .showcase-img {
+  min-height: 390px;
+}
+
+#home .showcase-title {
+  font-size: clamp(24px, 2.3vw, 36px);
 }
 
 @media (max-width: 900px) {
   #home .hero-wrap {
-    padding: 72px 20px 48px;
+    padding: 62px 20px 42px;
   }
 
   #home .hero-name {
-    font-size: clamp(58px, 17vw, 120px);
-    letter-spacing: -3px;
+    font-size: clamp(50px, 14vw, 92px);
+    letter-spacing: -2px;
+    margin-bottom: 22px;
   }
 
   #home .hero-desc {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   #home .hero-showcase {
-    margin-top: 48px;
+    margin-top: 32px;
   }
 }
 
 @media (max-width: 480px) {
   #home .hero-name {
-    font-size: clamp(44px, 18vw, 82px);
-    letter-spacing: -2px;
+    font-size: clamp(40px, 15vw, 66px);
+    letter-spacing: -1.5px;
   }
 
   #home .hero-meta {
